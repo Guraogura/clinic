@@ -1,0 +1,16 @@
+{
+  "name": "clinic",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "shota ogura",
+  "license": "MIT",
+  "dependencies": {
+    "date-utils": "^1.2.21",
+    "express": "^4.17.1",
+    "node-google-calendar": "^1.1.1"
+  }
+}
