@@ -1,4 +1,4 @@
-#! C:\Program Files\nodejs\node.exe
+#! node
 // ヘッダー出力
 // console.log("Content-type: text/plain\n\n");
 console.log("Content-type: application/json\n\n");

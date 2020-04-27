@@ -1,4 +1,4 @@
-#! C:\Program Files\nodejs\node.exe
+#! node
 
 /*************************
   event_get.js
