@@ -8,7 +8,7 @@ var path = require('path');
 var server = http.createServer();
 
 //serverのtop directory定義
-var topdir = "public/"
+var topdir = "__dirname/"
 
 //mime type定義
 var mime = {
