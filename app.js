@@ -119,5 +119,5 @@ server.on('request', function (req, res) {
     Response[GetURI(uri)](req_path);
 });
 
-// 指定されたポート(8080)でコネクションの受け入れを開始する
-server.listen(8080)
+// 指定されたポート(3000)でコネクションの受け入れを開始する
+server.listen(process.env.PORT || 3000)
