@@ -27,7 +27,13 @@ http.createServer((req, res) => {
     console.log(req);
     let url = req.url; // リクエストのURL をurl 変数に保存
     // URL にファイル拡張子が含まれているかチェック
-    if (url.indexOf(".html") !== -1) {
+    if (url === '/') {
+        res.writeHead(httpStatus.OK, {
+        "Content-Type": "text/html"
+        }); // レスポンスのコンテンツタイプを設定
+        // readFile でファイルの内容を読む
+        customReadFile(`./public/index.html`, res);
+    }else if (url.indexOf(".html") !== -1) {
         res.writeHead(httpStatus.OK, {
         "Content-Type": "text/html"
         }); // レスポンスのコンテンツタイプを設定
