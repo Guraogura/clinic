@@ -222,7 +222,8 @@ http.createServer((req, res) => {
         sendErrorResponse(res);
     }
     })
-    .listen(3000);
+    .listen(process.env.PORT || 3000);
+    
     console.log(`The server is listening on port number: ${port}`);
     // リクエストされた名前のファイルを探す
     const customReadFile = (file_path, res) => {
