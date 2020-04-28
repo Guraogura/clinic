@@ -185,7 +185,10 @@ http.createServer((req, res) => {
                     response.text = '申し訳ございません。その時間は既に予約が入っています。';
                     response.debug = calEvents;
                     // 結果を返す
-                    console.log(JSON.stringify({"success":0,"data":response}, 'utf8'));
+                    json = JSON.stringify({"success":0,"data":response}, 'utf8');
+
+                    res.write(json);
+                    res.end();
                 
               }  else {
                 // 先約が無かったら予約を登録
@@ -196,14 +199,14 @@ http.createServer((req, res) => {
                         json = JSON.stringify({"success":1,"data":response}, 'utf8');
 
                         res.write(json);
-                        res.end()
+                        res.end();
                     })
                     .catch(err => {
                         response.text = '予約に失敗しました。';
                         response.debug = result;
                         json = JSON.stringify({"success":0,"data":response}, 'utf8');
                         res.write(json);
-                        res.end()
+                        res.end();
                 });
               }
             })
@@ -211,7 +214,7 @@ http.createServer((req, res) => {
                 response.text = 'err.message';
                 json = JSON.stringify({"success":0,"data":response}, 'utf8');
                 res.write(json);
-                res.end()
+                res.end();
             });
       
         });
