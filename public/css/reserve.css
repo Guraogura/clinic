@@ -13,14 +13,6 @@ p {
   margin: 0 auto;
 }
 
-#calendar {
-  border-bottom: transparent !important; 
-}
-
-.input-group-text {
-  width: 150px;
-}
-
 .error {
   margin: 0;
   padding: 0;
@@ -29,6 +21,10 @@ p {
 }
 
 /* カレンダーナビのスタイル */
+#calendar {
+  border-bottom: transparent !important; 
+}
+
 #calendar-nav {
   text-align: center;
 }
@@ -73,9 +69,6 @@ p {
   background-color: rgb(206, 223, 253);
 }
 
-#cal_header {
-  background-color:#fff !important;
-}
 
 /* モーダル */
 .modal-content {
@@ -127,4 +120,9 @@ p {
   100% {
     transform: rotate(360deg);
   }
+}
+
+
+[v-cloak] {
+  display: none !important;
 }

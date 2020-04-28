@@ -11,6 +11,8 @@
   "dependencies": {
     "date-utils": "^1.2.21",
     "express": "^4.17.1",
+    "http": "0.0.1-security",
+    "http-status-codes": "^1.4.0",
     "node-google-calendar": "^1.1.1"
   }
 }

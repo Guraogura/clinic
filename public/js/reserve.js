@@ -1,4 +1,3 @@
-
 // インスタンス作成
 const app = new Vue({
   el: '#app',
@@ -153,10 +152,10 @@ const app = new Vue({
       if ( this.formCheck.flag != 0 ) {
         return;
       } else {
-        $('#Modal').modal('toggle');
+        $('#Modal').modal('show');
         let sendData = JSON.stringify({"success":1,"data":this.formData}, 'utf8');
         // POSTでデータを送信
-        $.post('/cgi-bin/event_make.cgi', sendData, 'json')
+        $.post('event_make.cgi', sendData, 'json')
         .then((res) => {
           console.log(res);
           if ( res.success === 1 ) {
@@ -208,7 +207,7 @@ const app = new Vue({
   },
   created() {
       // イベントデータ取得
-      $.post( '/cgi-bin/event_get.cgi', null, 'json' )
+      $.post( 'event_get.cgi', null, 'json' )
       .then((events) => {
       this.reserveData = events.data;
       console.log( this.reserveData );
@@ -218,6 +217,8 @@ const app = new Vue({
       this.calData.year = date.getFullYear();
       this.calData.month = date.getMonth() + 1;
       this.calData.today = date;
+
+      $('#Modal').modal('hide');
   },
 })
 

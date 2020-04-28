@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
   <!--スタイルシート読み込み-->
-  <link rel="stylesheet" href="css/reserve.css">
+  <link rel="stylesheet" href="reserve.css">
 
 </head>
 <body>
@@ -41,7 +41,7 @@
               ←
             </i>
             <!--年月表示-->
-            <span>{{ calData.year }}年 {{ getMonthName(calData.month) }}</span>
+            <span v-cloak>{{ calData.year }}年 {{ getMonthName(calData.month) }}</span>
             <!--次の月を表示-->
             <i 
               class="glyphicon glyphicon-menu-right"  
@@ -53,7 +53,7 @@
           <table id="calendar" class="table table-bordered">
             <thead>
                 <tr>
-                    <th v-for="week in weeks">{{ week }}</th>
+                    <th v-for="week in weeks" v-cloak>{{ week }}</th>
                 </tr>
             </thead>
             <tbody>
@@ -67,6 +67,7 @@
                                                 index != 3 
                                   }"
                     v-on:click="selectDate(day.day, day.fullDay, index)"
+                    v-cloak
                   >
                     {{ day.day }}
                   </td>
@@ -98,6 +99,7 @@
                 }"
                 class="chart"
                 v-on:click="selectTime(time.time)"
+                v-cloak
               >
                 {{ time.time }}
 
@@ -115,15 +117,15 @@
 
         <!--入力フォーム開始-->
         <div class="col-sm-7">
-          <p>ご予約日時：　{{ formData.date }} {{ formData.time }}</p>
+          <p v-cloak>ご予約日時：　{{ formData.date }} {{ formData.time }}</p>
 
-          <form id="input-form mt-5">  
-            <p class="label">お名前：<span class="error"> {{ formCheck.name }}</span></p>
+          <form id="input-form pt-5">  
+            <p class="label">お名前：<span class="error" v-cloak> {{ formCheck.name }}</span></p>
             <div class="form-group input-group">
                 <input type="text" class="form-control" v-model="formData.name">
             </div>
 
-            <p class="label">メールアドレス：<span class="error"> {{ formCheck.mail }}</span></p>
+            <p class="label">メールアドレス：<span class="error" v-cloak> {{ formCheck.mail }}</span></p>
             <div class="form-group input-group text-nowrap">
                 <input type="text" class="form-control" v-model="formData.mail">
             </div> 
@@ -144,7 +146,7 @@
             </div>
             -->
 
-            <p class="label">診察：<span class="error"> {{ formCheck.type }}</span></p>
+            <p class="label">診察：<span class="error" v-cloak> {{ formCheck.type }}</span></p>
             <div class="form-group input-group text-nowrap">
               <select class="custom-select" id="inputGroupSelect03" v-model="formData.type" placeholder="選択してください">
                 <option value="初診">初診</option>
@@ -167,7 +169,7 @@
       </div>
 
       <!-- モーダル -->
-      <div class="modal fade" id="Modal" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="ModalLabel" aria-hidden="true">
+      <div class="modal fade" id="Modal" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="ModalLabel" aria-hidden="true" data-show="true">
         <!--ローディング中-->
         <div class="modal-dialog modal-sm" role="document"  v-show="modal.status === 'loading'">
           <div class="modal-content">
@@ -211,7 +213,7 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
   <!--js-->
-  <script src="js/reserve.js"></script>
+  <script src="reserve.js"></script>
 
   <!-- Font Awesome -->
   <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js"></script>
