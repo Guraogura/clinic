@@ -100,7 +100,7 @@ p {
 }
 
 #timechart tbody tr .chart:not(.selectable) {
-  background-color: #FEEEFF;
+  background-color: rgb(236, 236, 236);
 }
 
 
