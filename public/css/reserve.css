@@ -5,19 +5,13 @@ body {
   padding: 0;
 }
 p {
+  padding: 0;
   margin: 0;
 }
 
 #container {
   max-width: 1040px;
   margin: 0 auto;
-}
-
-.error {
-  margin: 0;
-  padding: 0;
-  font-size: 12px;
-  color: red;
 }
 
 /* カレンダーナビのスタイル */
@@ -109,6 +103,18 @@ p {
   background-color: rgb(236, 236, 236);
 }
 
+/* 入力フォーム */
+.label {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.error {
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+  color: red;
+}
 
 /* 読み込み中アイコン */
 .loading-icon {

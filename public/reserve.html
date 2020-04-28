@@ -117,7 +117,7 @@
 
         <!--入力フォーム開始-->
         <div class="col-sm-7">
-          <p v-cloak>ご予約日時：　{{ formData.date }} {{ formData.time }}</p>
+          <p class="label" v-cloak>ご予約日時：　{{ formData.date }} {{ formData.time }}</p>
 
           <form id="input-form" class="pt-3">  
             <p class="label">お名前：<span class="error" v-cloak> {{ formCheck.name }}</span></p>
@@ -142,11 +142,8 @@
             <div class="form-group input-group text-nowrap">
                 <input type="text" class="form-control" v-model="formData.comment">
             </div>
-            <div>
-              <div>
-                <button type="button" class="btn btn-success btn-block" v-on:click="sendReserve()">ご予約内容を送信する</button>
-              </div>
-            </div>
+            <!--送信ボタン-->
+            <button type="button" class="btn btn-success btn-block mt-4" v-on:click="sendReserve()">ご予約内容を送信する</button>
           </form>
         </div>
         <!--入力フォーム終わり-->
