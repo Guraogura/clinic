@@ -9,15 +9,21 @@ p {
   margin: 0;
 }
 
+h2 {
+  text-align: center;
+}
+
+#explain {
+  text-align: right;
+}
+
 #container {
-  max-width: 1040px;
+  max-width: 1024px;
   margin: 0 auto;
 }
 
 /* カレンダーナビのスタイル */
-#calendar {
-  border-bottom: transparent !important; 
-}
+
 
 #calendar-nav {
   text-align: center;

@@ -24,14 +24,8 @@
     <div id="app">
       <div class="row">
         <!--上の段-->
-        <div class="col-sm-12" id="calendar">
-          <p>
-            診察時間：10:00～18:00(土曜のみ10:00～16:00)<br>
-            休診日：日、水<br>
-          </p>
+        <div class="col-sm-12 mb-3" id="calendar">
           <!--カレンダー開始-->
-          <p>日付を選択してください</p>
-          
           <div id="calendar-nav">
             <!--前の月を表示-->
             <i
@@ -50,7 +44,7 @@
               →
             </i>
           </div>
-          <table id="calendar" class="table table-bordered">
+          <table id="calendar" class="table table-bordered mb-1">
             <thead>
                 <tr>
                     <th v-for="week in weeks" v-cloak>{{ week }}</th>
@@ -75,10 +69,14 @@
             </tbody>
         </table>
         <!--カレンダー終わり-->
+        <p id="explain">
+          ※水曜・日曜は定休（祝日は不定休）
+        </p>
         </div>
+
       </div>
 
-      <!--下の段-->
+      <!--下の段開始-->
       <div id="input" class="row">
 
         <!--タイムチャート開始-->
@@ -116,21 +114,21 @@
         </div>
 
         <!--入力フォーム開始-->
-        <div class="col-sm-7">
+        <div class="col-sm-7 pr-3">
           <p class="label" v-cloak>ご予約日時：　{{ formData.date }} {{ formData.time }}</p>
 
           <form id="input-form" class="pt-3">  
-            <p class="label">お名前：<span class="error" v-cloak> {{ formCheck.name }}</span></p>
+            <p class="label"><label>お名前：</label><span class="error" v-cloak> {{ formCheck.name }}</span></p>
             <div class="form-group input-group">
                 <input type="text" class="form-control" v-model="formData.name">
             </div>
 
-            <p class="label">メールアドレス：<span class="error" v-cloak> {{ formCheck.mail }}</span></p>
+            <p class="label"><label>メールアドレス：</label><span class="error" v-cloak> {{ formCheck.mail }}</span></p>
             <div class="form-group input-group text-nowrap">
                 <input type="text" class="form-control" v-model="formData.mail">
             </div> 
 
-            <p class="label">診察：<span class="error" v-cloak> {{ formCheck.type }}</span></p>
+            <p class="label"><label>診察：</label><span class="error" v-cloak> {{ formCheck.type }}</span></p>
             <div class="form-group input-group text-nowrap">
               <select class="custom-select" id="inputGroupSelect03" v-model="formData.type" placeholder="選択してください">
                 <option value="初診">初診</option>
@@ -138,9 +136,9 @@
               </select>
             </div>
             
-            <p class="label">備考：</p>
+            <p class="label"><label>備考：</label></p>
             <div class="form-group input-group text-nowrap">
-                <input type="text" class="form-control" v-model="formData.comment">
+                <textarea type="text" class="form-control" v-model="formData.comment"></textarea>
             </div>
             <!--送信ボタン-->
             <button type="button" class="btn btn-success btn-block mt-4" v-on:click="sendReserve()">ご予約内容を送信する</button>
@@ -187,7 +185,11 @@
 
     </div>
   </div>
-  
+  <footer class="m-1">
+    フッター
+  </footer>
+
+
   <!--js読み込み-->
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
