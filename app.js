@@ -55,9 +55,9 @@ http.createServer((req, res) => {
         });
         customReadFile(`./public/images/${url}`, res);
     } else if (url === "/event_get.cgi" ) {
-        /**************************************************
+/**************************************************
           event_get.js
-         **************************************************/
+**************************************************/
         // ヘッダー
         res.writeHead(httpStatus.OK, {"Content-Type": "application/json"});
 
@@ -76,7 +76,7 @@ http.createServer((req, res) => {
         // timeMinからtimeMaxの間のカレンダーイベントが取得される
         var params = {
           timeMin: fDay,
-          timeMax: eDay,
+          // timeMax: eDay,
         };
 
         cal.Events.list(calId, params)
@@ -130,9 +130,9 @@ http.createServer((req, res) => {
             res.write(err.message);
             res.end()
         });
-        /**************************************************
+/**************************************************
           event_get.js 終わり
-         **************************************************/
+**************************************************/
 
     } else if (url === "/event_make.cgi" && req.method === 'POST') {
         var data = '';
@@ -140,9 +140,9 @@ http.createServer((req, res) => {
         //POSTデータを受けとる
         req.on('data', function(chunk) {data += chunk})
         .on('end', function() {
-        /**************************************************
+/**************************************************
           event_make.js 
-         **************************************************/
+**************************************************/
             data = JSON.parse(data);
             var formData = data.data;
             console.log('formData', formData);
@@ -215,15 +215,15 @@ http.createServer((req, res) => {
             });
       
         });
-        /**************************************************
+/**************************************************
           event_make.js 終わり
-         **************************************************/
+**************************************************/
     } else {
         sendErrorResponse(res);
     }
     })
     .listen(process.env.PORT || 3000);
-    
+
     console.log(`The server is listening on port number: ${port}`);
     // リクエストされた名前のファイルを探す
     const customReadFile = (file_path, res) => {
