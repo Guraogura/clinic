@@ -44,24 +44,30 @@ p {
   cursor: default;
 }
 
-
+/*
 #calendar th:first-child, #calendar th:nth-child(4) {
   background-color: #FEEEFF;
 }
 #calendar td:first-child, #calendar td:nth-child(4) {
   background-color: #FEEEFF;
 }
+
 #calendar th:nth-child(7) {
   background-color: #DFFFFF
 }
 #calendar td:nth-child(7) {
   background-color: #DFFFFF
 }
+*/
 
 #calendar .selectable:hover {
   opacity: 0.6;
   background-color: rgb(206, 223, 253);
   cursor: pointer;
+}
+
+#calendar tbody td:not(.selectable) {
+  background-color: rgb(236, 236, 236);
 }
 
 #calendar .active {

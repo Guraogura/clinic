@@ -5,11 +5,8 @@
  *************************/
 require('date-utils');
 
-function print(data){
-        process.stdout.write(data);
-}
 
-print("Content-type: application/json\n\n");
+// console.log("Content-type: application/json\n\n");
 
 // ----------------------
 // パッケージのインスタンス生成
@@ -79,10 +76,10 @@ cal.Events.list(calId, params)
   })
 
   json = JSON.stringify({"success":1,"data":recerveData}, 'utf8');
-  //print("Content-Length: " + json.length + "\n\n");
+  //console.log("Content-Length: " + json.length + "\n\n");
 
-  print(json);
+  console.log(json);
 })
 .catch(err => {
-  print(err.message);
+  console.log(err.message);
 });

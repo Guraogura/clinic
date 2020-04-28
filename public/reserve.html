@@ -119,7 +119,7 @@
         <div class="col-sm-7">
           <p v-cloak>ご予約日時：　{{ formData.date }} {{ formData.time }}</p>
 
-          <form id="input-form pt-5">  
+          <form id="input-form" class="pt-3">  
             <p class="label">お名前：<span class="error" v-cloak> {{ formCheck.name }}</span></p>
             <div class="form-group input-group">
                 <input type="text" class="form-control" v-model="formData.name">
@@ -129,22 +129,6 @@
             <div class="form-group input-group text-nowrap">
                 <input type="text" class="form-control" v-model="formData.mail">
             </div> 
-            
-            <!--
-            <div class="row form-group input-group text-nowrap">
-              <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon1">ご予約日</span>
-              </div>
-                <input type="text" class="form-control" v-model="formData.date" disabled placeholder="カレンダーから選択">
-            </div>
-            -->
-            
-            <!--
-            <p class="label">ご予約時間帯<span class="error"> {{ formCheck.time }}</span></p>
-            <div class="form-group input-group text-nowrap" id='datetimepicker3'>
-              <input type="time" class="fieldset__input js__datepicker form-control" v-model="formData.time">
-            </div>
-            -->
 
             <p class="label">診察：<span class="error" v-cloak> {{ formCheck.type }}</span></p>
             <div class="form-group input-group text-nowrap">
