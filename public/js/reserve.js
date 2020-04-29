@@ -143,7 +143,7 @@ const app = new Vue({
         this.formCheck.flag = 1;
       }
       if ( this.formData.type.match(/初診|再診/) == null ){
-        this.formCheck.type = '※診察を正しく入力してください';
+        this.formCheck.type = '※初診/再診を正しく入力してください';
         this.formCheck.flag = 1;
 
       }

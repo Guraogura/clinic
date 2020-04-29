@@ -3,84 +3,159 @@
 body {
   margin: 0;
   padding: 0;
+  font-family: "游ゴシック Medium", "Noto Sans JP";
+  color: #212529;
 }
 p {
   padding: 0;
   margin: 0;
 }
+a {
+  color: #212529;
+}
 
 header {
   height: 140px;
 }
-
-
-
-h2 {
+h1 {
+  text-align: center;
+  margin: 30px;
+}
+h4 {
   text-align: center;
 }
+/* ナビゲーションメニュー */
+nav {
+  height: 140px;
 
-#explain {
-  text-align: right;
-}
-
-#container {
-  max-width: 1024px;
   margin: 0 auto;
 }
 
-/* カレンダーナビのスタイル */
-#calendar {
-  border-bottom: transparent !important; 
+.navbar-brand {
+  font-size: 36px;
+  font-weight: bold;
+  color: #0099cc;
+}
+.nav-item {
+  padding: 0px 10px;
 }
 
+/* コンテンツエリア全体 */
+#container {
+  margin: 0 auto;
+}
+.contents{
+  max-width: 1024px;
+  margin: 30px auto;
+}
+
+/* 予約エリア全体のスタイル */
+#web-reserve {
+  padding-top: 30px;
+  /*background-color: #effbff;*/
+
+}
+/* 左カラムのスタイル */
+#left-column {
+  padding: 0px 30px;
+}
+/* 右カラムのスタイル */
+#right-column {
+  padding: 0px 30px;
+}
+
+
+/* カレンダー全体のスタイル */
+#calendar-area {
+  margin-top: 30px;
+}
+#calendar {
+  background-color: #fff;
+}
+/* カレンダーナビのスタイル */
 #calendar-nav {
   text-align: center;
+  height: 27px
 }
-
 #calendar-nav span {
   display: inline-block;
   width: 200px;
 }
-
 #calendar-nav i:hover {
   cursor: pointer;
 }
-
 /* カレンダーのスタイル */
 .table th, td{
   text-align: center;
   cursor: default;
+  background-color:transparent;
 }
-
-/*
-#calendar th:first-child, #calendar th:nth-child(4) {
-  background-color: #FEEEFF;
-}
-#calendar td:first-child, #calendar td:nth-child(4) {
-  background-color: #FEEEFF;
-}
-
-#calendar th:nth-child(7) {
-  background-color: #DFFFFF
-}
-#calendar td:nth-child(7) {
-  background-color: #DFFFFF
-}
-*/
-
 #calendar .selectable:hover {
   opacity: 0.6;
   background-color: rgb(206, 223, 253);
   cursor: pointer;
 }
-
 #calendar tbody td:not(.selectable) {
-  background-color: rgb(236, 236, 236);
+  color: rgb(196, 196, 196);
 }
-
 #calendar .active {
   opacity: 1;
   background-color: rgb(206, 223, 253);
+}
+#explain {
+  text-align: right;
+}
+
+
+/* タイムチャートのスタイル */
+#timechart-area {
+  margin-top: 30px;
+  background-color: #fff;
+}
+#timechart th{
+  margin: 0;
+  padding: 0;
+}
+#timechart td {
+  height: 10px;
+  margin: 0;
+  padding: 0;
+}
+#timechart tbody tr .selectable:hover {
+  opacity: 0.6;
+  background-color: rgb(206, 223, 253);
+  cursor: pointer;
+}
+#timechart tbody tr .active {
+  opacity: 1;
+  background-color: rgb(206, 223, 253);
+  cursor: pointer;
+}
+#timechart tbody tr .chart:not(.selectable) {
+  color: rgb(196, 196, 196);
+}
+
+
+/* 入力フォーム */
+#form-area {
+  margin-top: 30px;
+  background-color: #fff;
+}
+.label {
+  font-size: 14px;
+  font-weight: bold;
+}
+.error {
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+  color: red;
+}
+textarea {
+  min-height: 7em;
+}
+#send-button {
+  margin-top: 30px;
 }
 
 
@@ -88,59 +163,13 @@ h2 {
 .modal-content {
   text-align: center;
 }
-
-/* タイムチャートのスタイル */
-#timechart th{
-  margin: 0;
-  padding: 0;
-}
-
-#timechart td {
-  height: 10px;
-  margin: 0;
-  padding: 0;
-}
-
-#timechart tbody tr .selectable:hover {
-  opacity: 0.6;
-  background-color: rgb(206, 223, 253);
-  cursor: pointer;
-}
-
-#timechart tbody tr .active {
-  opacity: 1;
-  background-color: rgb(206, 223, 253);
-  cursor: pointer;
-}
-
-#timechart tbody tr .chart:not(.selectable) {
-  background-color: rgb(236, 236, 236);
-}
-
-/* 入力フォーム */
-.label {
-  font-size: 14px;
-  font-weight: bold;
-}
-
-.error {
-  margin: 0;
-  padding: 0;
-  font-size: 12px;
-  color: red;
-}
-
 /* 読み込み中アイコン */
 .loading-icon {
   top: 50%;
   left: 50%;
-
-/*  margin-top: -25px;
-  margin-left: -23px;*/
   font-size: 46px;
   animation: spin 2s linear infinite;
 }
-
 /* 回転するアニメーション */
 @keyframes spin {
   100% {
@@ -148,7 +177,7 @@ h2 {
   }
 }
 
-
+/* vuejs読み込み対策 */
 [v-cloak] {
   display: none !important;
 }

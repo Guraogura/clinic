@@ -15,136 +15,136 @@
 
 </head>
 <body>
-  <header class="m-1">
+  <header>
+
     ヘッダー
   </header>
   
   <div id="container">
-        <h2>ご予約フォーム</h2>
+        <h1>ご予約フォーム</h1>
     <div id="app">
-      <div class="row">
-        <!--上の段-->
-        <div class="col-sm-12 mb-3" id="calendar">
-          <!--カレンダー開始-->
-          <div id="calendar-nav">
-            <!--前の月を表示-->
-            <i
-              class="glyphicon glyphicon-menu-left" 
-              v-on:click="moveLastMonth"
-            >
-              ←
-            </i>
-            <!--年月表示-->
-            <span v-cloak>{{ calData.year }}年 {{ getMonthName(calData.month) }}</span>
-            <!--次の月を表示-->
-            <i 
-              class="glyphicon glyphicon-menu-right"  
-              v-on:click="moveNextMonth"
-            >
-              →
-            </i>
+      <div id="web-reserve">
+        <div class="row contents">
+          <!--左の列-->
+          
+          <div id="left-column" class="col-sm-6">
+            <h4>ご希望のお時間をご選択ください</h4>
+            <!--カレンダー開始-->
+            <div id="calendar-area" class="p-1">
+              <div id="calendar-nav">
+                <!--前の月を表示-->
+                <i
+                  class="fas fa-angle-left"
+                  v-on:click="moveLastMonth"
+                ></i>
+                <!--年月表示-->
+                <span class="label" v-cloak>{{ calData.year }}年 {{ getMonthName(calData.month) }}</span>
+                <!--次の月を表示-->
+                <i 
+                  class="fas fa-angle-right"
+                  v-on:click="moveNextMonth"
+                ></i>
+              </div>
+              <table id="calendar" class="table mb-1">
+                <thead>
+                    <tr>
+                        <th v-for="week in weeks" v-cloak>{{ week }}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="week in calendar">
+                      <td 
+                        v-for="(day, index) in week" 
+                        v-bind:class="{
+                                        active: calData.activeDay == day.day,
+                                        selectable: day.fullDay >= calData.today &&
+                                                    index != 0 &&
+                                                    index != 3 
+                                      }"
+                        v-on:click="selectDate(day.day, day.fullDay, index)"
+                        v-cloak
+                      >
+                        {{ day.day }}
+                      </td>
+                    </tr>
+                </tbody>
+              </table>
+              <!--カレンダー終わり-->
+              <p id="explain">
+                ※水曜・日曜は定休（祝日は不定休）
+              </p>
+            </div>
+            <!--タイムチャート開始-->
+            <div id="timechart-area">
+              <table id="timechart" class="table">
+                <thead>
+                  <tr>
+                    <th>診察時間</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!--タイムチャート生成-->
+                  <tr v-for="time in timeChart">
+                    <td
+                      v-bind:class="{
+                        active: formData.time == time.time,
+                        selectable: reserveChk(time.time)
+                      }"
+                      class="chart"
+                      v-on:click="selectTime(time.time)"
+                      v-cloak
+                    >
+                      {{ time.time }}
+                    
+                    </td>
+                  </tr>
+                  <!--日付未選択時に表示-->
+                  <tr v-show="formData.date == ''">
+                    <td>日付を選択すると予約可能な時間が表示されます。</td>
+                  </tr>
+                </tbody>
+              </table>
+            <!--タイムチャート終わり-->
+            </div>
           </div>
-          <table id="calendar" class="table table-bordered mb-1">
-            <thead>
-                <tr>
-                    <th v-for="week in weeks" v-cloak>{{ week }}</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr v-for="week in calendar">
-                  <td 
-                    v-for="(day, index) in week" 
-                    v-bind:class="{
-                                    active: calData.activeDay == day.day,
-                                    selectable: day.fullDay >= calData.today &&
-                                                index != 0 &&
-                                                index != 3 
-                                  }"
-                    v-on:click="selectDate(day.day, day.fullDay, index)"
-                    v-cloak
-                  >
-                    {{ day.day }}
-                  </td>
-                </tr>
-            </tbody>
-        </table>
-        <!--カレンダー終わり-->
-        <p id="explain">
-          ※水曜・日曜は定休（祝日は不定休）
-        </p>
-        </div>
 
-      </div>
+          <!--右の列-->
+          <div id="right-column" class="col-sm-6">
+            <h4>お客様の情報をご入力ください</h4>
+            <!--入力フォーム開始-->
+            <div id="form-area" class="p-1">
+            <p class="label" v-cloak>ご予約日時：　{{ formData.date }} {{ formData.time }}</p>
 
-      <!--下の段開始-->
-      <div id="input" class="row">
+            <form id="input-form" class="pt-3">  
+              <p class="label"><label>お名前：</label><span class="error" v-cloak> {{ formCheck.name }}</span></p>
+              <div class="form-group input-group">
+                  <input type="text" class="form-control" v-model="formData.name">
+              </div>
 
-        <!--タイムチャート開始-->
-        <div id="input-hours" class="col-sm-5">
-          <table id="timechart" class="table table-bordered">
-            <thead>
-              <tr>
-                  <th>診察時間</th>
-              </tr>
-          </thead>
-          <tbody>
-            <!--タイムチャート生成-->
-            <tr v-for="time in timeChart">
-              <td
-                v-bind:class="{
-                  active: formData.time == time.time,
-                  selectable: reserveChk(time.time)
-                }"
-                class="chart"
-                v-on:click="selectTime(time.time)"
-                v-cloak
-              >
-                {{ time.time }}
+              <p class="label"><label>メールアドレス：</label><span class="error" v-cloak> {{ formCheck.mail }}</span></p>
+              <div class="form-group input-group text-nowrap">
+                  <input type="text" class="form-control" v-model="formData.mail">
+              </div> 
 
-              </td>
-            </tr>
+              <p class="label"><label>初診/再診：</label><span class="error" v-cloak> {{ formCheck.type }}</span></p>
+              <div class="form-group input-group text-nowrap">
+                <select class="custom-select" id="inputGroupSelect03" v-model="formData.type" placeholder="選択してください">
+                  <option value="初診">初診</option>
+                  <option value="再診">再診</option>
+                </select>
+              </div>
 
-            <!--日付未選択時に表示-->
-            <tr v-show="formData.date == ''">
-              <td>日付を選択すると予約可能な時間が表示されます。</td>
-            </tr>
-          </tbody>
-          </table>
-          <!--タイムチャート終わり-->
-        </div>
-
-        <!--入力フォーム開始-->
-        <div class="col-sm-7 pr-3">
-          <p class="label" v-cloak>ご予約日時：　{{ formData.date }} {{ formData.time }}</p>
-
-          <form id="input-form" class="pt-3">  
-            <p class="label"><label>お名前：</label><span class="error" v-cloak> {{ formCheck.name }}</span></p>
-            <div class="form-group input-group">
-                <input type="text" class="form-control" v-model="formData.name">
+              <p class="label"><label>備考：</label></p>
+              <div class="form-group input-group text-nowrap">
+                  <textarea type="text" class="form-control" v-model="formData.comment"></textarea>
+              </div>
+              <!--送信ボタン-->
+              <button id="send-button" type="button" class="btn btn-success btn-block" v-on:click="sendReserve()">ご予約内容を送信する</button>
+            </form>
             </div>
-
-            <p class="label"><label>メールアドレス：</label><span class="error" v-cloak> {{ formCheck.mail }}</span></p>
-            <div class="form-group input-group text-nowrap">
-                <input type="text" class="form-control" v-model="formData.mail">
-            </div> 
-
-            <p class="label"><label>診察：</label><span class="error" v-cloak> {{ formCheck.type }}</span></p>
-            <div class="form-group input-group text-nowrap">
-              <select class="custom-select" id="inputGroupSelect03" v-model="formData.type" placeholder="選択してください">
-                <option value="初診">初診</option>
-                <option value="再診">再診</option>
-              </select>
-            </div>
-            
-            <p class="label"><label>備考：</label></p>
-            <div class="form-group input-group text-nowrap">
-                <textarea type="text" class="form-control" v-model="formData.comment"></textarea>
-            </div>
-            <!--送信ボタン-->
-            <button type="button" class="btn btn-success btn-block mt-4" v-on:click="sendReserve()">ご予約内容を送信する</button>
-          </form>
+            <!--入力フォーム終わり-->
+          </div>
         </div>
-        <!--入力フォーム終わり-->
       </div>
 
       <!-- モーダル -->
@@ -199,7 +199,7 @@
   <script src="reserve.js"></script>
 
   <!-- Font Awesome -->
-  <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js"></script>
+  <script src="https://kit.fontawesome.com/9a43c2d038.js" crossorigin="anonymous"></script>
 
 </body>
 </html>
