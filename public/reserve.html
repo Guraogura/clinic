@@ -57,15 +57,19 @@
   <div id="container">
     <div id="main-visual">
     </div>
-    <h2>ご予約フォーム</h2>
-        
+    <div id="title">
+      <h2>ご予約フォーム</h2>
+    </div>    
+
     <div id="app">
       <div id="web-reserve">
         <div class="row contents">
           <!--左の列-->
           
           <div id="left-column" class="col-sm-6">
-            <h4>ご希望のお時間をご選択ください</h4>
+            <div class="h4">
+              <h4>ご希望のお時間をご選択ください</h4>
+            </div>
             <!--カレンダー開始-->
             <div id="calendar-area" class="p-1">
               <div id="calendar-nav">
@@ -147,7 +151,9 @@
 
           <!--右の列-->
           <div id="right-column" class="col-sm-6">
-            <h4>お客様の情報をご入力ください</h4>
+            <div class="h4">
+              <h4>お客様の情報をご入力ください</h4>
+            </div>
             <!--入力フォーム開始-->
             <div id="form-area" class="p-1">
             <p class="label" v-cloak>ご予約日時：　{{ formData.date }} {{ formData.time }}</p>
@@ -225,12 +231,12 @@
   <footer class="m-1">
     <div id="footer_navi">
       <ul>
-        <li class="nav-item"><a href="#" class="nav-link">当院紹介</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">診療内容</a></li>
-        <li class="nav-item" active><a href="#" class="nav-link">ご予約</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">担当医師</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">よくある質問</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">アクセス</a></li>
+        <li><a href="#" >当院紹介</a></li>
+        <li><a href="#" >診療内容</a></li>
+        <li><a href="#" >ご予約</a></li>
+        <li><a href="#" >担当医師</a></li>
+        <li><a href="#" >よくある質問</a></li>
+        <li><a href="#" >アクセス</a></li>
       </ul>
     </div>
     <small>&copy; 2020 Jerome Le Dental Clinic</small>
