@@ -16,12 +16,49 @@
 </head>
 <body>
   <header>
+    <!--ナビゲーションバー-->
+    
+    <div id="head-top" class="d-flex flex-row justify-content-between">
 
-    ヘッダー
+      <div id="akiyama">
+        <p>秋山県香田市の歯科･口腔外科</p>
+      </div>
+      <div id="tel">
+          <p><i class="fas fa-phone"></i> 000-000-0000</p>
+      </div>
+    </div>
+
+      <nav class="navbar navbar-expand-sm d-flex flex-row justify-content-between" id="nav">
+      <!-- ホームへ戻るリンク。ブランドロゴなどを置く。 -->
+        <div id="navbar-brand-area" class="align-self-end">
+          <a href="#" class="navbar-brand">ジェロムレ歯科</a>
+        </div>
+
+        <!-- 横幅が狭い時に出るハンバーガーボタン -->
+        <button type="button" class="navbar-toggler align-self-end" data-toggle="collapse" data-target="#nav-bar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- メニュー項目 -->
+        <div class="collapse navbar-collapse align-self-end justify-content-end" id="nav-bar">
+          <ul class="navbar-nav">
+            <li class="nav-item"><a href="#" class="nav-link">当院紹介</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">診療内容</a></li>
+            <li class="nav-item" active><a href="#" class="nav-link">ご予約</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">担当医師</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">よくある質問</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">アクセス</a></li>
+          </ul>
+        </div>
+    </nav>
+    <!--ナビゲーションバー終わり-->
   </header>
   
   <div id="container">
-        <h1>ご予約フォーム</h1>
+    <div id="main-visual">
+    </div>
+    <h2>ご予約フォーム</h2>
+        
     <div id="app">
       <div id="web-reserve">
         <div class="row contents">
@@ -186,7 +223,17 @@
     </div>
   </div>
   <footer class="m-1">
-    フッター
+    <div id="footer_navi">
+      <ul>
+        <li class="nav-item"><a href="#" class="nav-link">当院紹介</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">診療内容</a></li>
+        <li class="nav-item" active><a href="#" class="nav-link">ご予約</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">担当医師</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">よくある質問</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">アクセス</a></li>
+      </ul>
+    </div>
+    <small>&copy; 2020 Jerome Le Dental Clinic</small>
   </footer>
 
 

@@ -13,32 +13,57 @@ p {
 a {
   color: #212529;
 }
-
 header {
   height: 140px;
 }
-h1 {
+h2 {
+  margin: 60px auto 0;
   text-align: center;
-  margin: 30px;
 }
 h4 {
   text-align: center;
 }
-/* ナビゲーションメニュー */
-nav {
-  height: 140px;
 
+/* ナビゲーションメニュー */
+#head-top {
+  padding: 15px 30px 0;
   margin: 0 auto;
 }
-
-.navbar-brand {
-  font-size: 36px;
-  font-weight: bold;
+#akiyama {
+  margin: 0px 0px 5px;
+  padding-left: 3px;
+  height: 25px;
+}
+#tel {
+  margin: 0 0 10px;
+  padding: 0 0.5rem;
+  font-size: 22px;
+}
+.fa-phone {
   color: #0099cc;
 }
-.nav-item {
-  padding: 0px 10px;
+#nav {
+  padding: 15px 30px;
+  margin: 0 auto;
 }
+.navbar-brand {
+  font-size: 32px;
+  font-weight: bold;
+  color: #0099cc;
+  font-family: "游明朝 Medium";
+}
+.nav-link {
+  margin: 0 7px;
+  padding: 0px;
+}
+.nav-item {
+  margin: 9px 0;
+  border-right: 1px solid #ddd;
+}
+.nav-item:last-child {
+  border-right: 0;
+}
+
 
 /* コンテンツエリア全体 */
 #container {
@@ -49,6 +74,14 @@ nav {
   margin: 30px auto;
 }
 
+/* メインビジュアル */
+#main-visual {
+  background-image: url("reserve.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 300px;
+}
 /* 予約エリア全体のスタイル */
 #web-reserve {
   padding-top: 30px;
@@ -180,4 +213,20 @@ textarea {
 /* vuejs読み込み対策 */
 [v-cloak] {
   display: none !important;
+}
+
+/* フッター */
+footer {
+  padding: 60px 30px 5px;
+  text-align: right;
+}
+footer #footer_navi ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+footer #footer_navi li {
+  display: inline-block;
+  font-size: smaller;
 }
