@@ -8,7 +8,7 @@ const app = new Vue({
       mail: '',
       date: '',
       time: '',
-      type: '',
+      type: '初診',
       comment: '',
     },
     // ヴァリデーションチェック

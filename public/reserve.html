@@ -35,7 +35,7 @@
         </div>
 
         <!-- 横幅が狭い時に出るハンバーガーボタン -->
-        <button type="button" class="navbar-toggler fa-lg align-self-end" data-toggle="collapse" data-target="#nav-bar">
+        <button type="button" class="navbar-toggler align-self-end" data-toggle="collapse" data-target="#nav-bar">
           <i class="fas fa-bars"></i>
         </button>
 
@@ -171,7 +171,7 @@
 
               <p class="label"><label>初診/再診：</label><span class="error" v-cloak> {{ formCheck.type }}</span></p>
               <div class="form-group input-group text-nowrap">
-                <select class="custom-select" id="inputGroupSelect03" v-model="formData.type" placeholder="選択してください">
+                <select class="custom-select" id="inputGroupSelect03" v-model="formData.type">
                   <option value="初診">初診</option>
                   <option value="再診">再診</option>
                 </select>
