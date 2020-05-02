@@ -132,8 +132,14 @@ h4 {
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 300px;
+  height: 200px;
 }
+@media (min-width: 576px) {
+  #main-visual {
+    height: 300px;
+  }
+}
+
 /* 予約エリア全体のスタイル */
 .contents{
   max-width: 1242px;
