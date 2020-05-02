@@ -13,11 +13,9 @@ p {
 a {
   color: #212529;
 }
-header {
-  height: 110px;
-}
+
 #title {
-  padding: 60px 0;
+  padding: 60px 0 15px;
   text-align: center;
 }
 h2 {
@@ -30,14 +28,18 @@ h4 {
   display: inline-block;
   padding-bottom: 1px;
   border-bottom: 1.5px dotted #0099cc;
+  font-size: 22px;
 }
 .h4 {
   text-align: center;
 }
 
-/* ナビゲーションメニュー */
+/* ヘッダー ナビゲーションメニュー */
+header {
+  height: 80px;
+}
 #head-top {
-  padding: 10px 45px 0;
+  padding: 5px 15px 0;
   margin: 0 auto;
 }
 #akiyama {
@@ -46,38 +48,67 @@ h4 {
   height: 25px;
 }
 #tel {
-  margin: 0 0 10px;
-  padding: 0 0.5rem;
-  font-size: 22px;
+  display: none;
 }
+
 .fa-phone {
   color: #0099cc;
 }
 #nav {
-  padding: 0px 45px;
+  padding: 0px 15px;
   margin: 0 auto;
 }
 .navbar-brand {
   padding: 0px;
-  font-size: 36px;
+  font-size: 28px;
   font-weight: bold;
   color: #0099cc;
   font-family: "游明朝 Medium";
 }
+.navbar-toggler {
+  margin: 9px 0;
+  padding: 0 5px;
+}
 .nav-link {
-  margin: 0 7px;
+  margin: 0 5px;
   padding: 0px;
   font-weight: bold;
+  text-align: right;
+}
+.nav-item {
+  margin: 5px 0;
 }
 .nav-link:hover {
   color: #0099cc;
 }
-.nav-item {
-  margin: 9px 0;
-  border-right: 1.5px solid #ddd;
-}
-.nav-item:last-child {
-  border-right: 0;
+
+
+@media (min-width: 576px) {
+  header {
+    height: 110px;
+  }
+  #head-top {
+    padding: 5px 45px 0;
+  }
+  #nav {
+    padding: 0px 45px;
+  }
+  #tel {
+    display: inherit;
+    margin: 0 0 10px;
+    padding: 0 0.5rem;
+    font-size: 22px;
+  }
+  .navbar-brand {
+    font-size: 36px;
+  }
+  .nav-item {
+    margin: 9px 0;
+    border-right: 1.5px solid #ddd;
+  }
+  .nav-item:last-child {
+    border-right: 0;
+  }
 }
 
 
@@ -99,16 +130,29 @@ h4 {
   margin: 30px auto 60px;
 }
 #web-reserve {
-  padding: 30px 0 90px;
+  padding: 15px 0 45px;
 }
 /* 左カラムのスタイル */
 #left-column {
-  padding: 0px 45px;
+  margin: 15px 0 0;
+  padding: 0px 10px;
 }
 /* 右カラムのスタイル */
 #right-column {
-  padding: 0px 45px;
+  margin: 15px 0 0;
+  padding: 0px 10px;
 }
+@media (min-width: 576px) {
+  /* 左カラムのスタイル */
+  #left-column {
+    padding: 0px 45px;
+  }
+  /* 右カラムのスタイル */
+  #right-column {
+    padding: 0px 45px;
+  }
+}
+
 
 
 /* カレンダー全体のスタイル */
@@ -155,7 +199,7 @@ h4 {
 
 /* タイムチャートのスタイル */
 #timechart-area {
-  margin-top: 30px;
+  margin: 15px 0 30px;
   background-color: #fff;
 }
 #timechart th{
