@@ -183,7 +183,6 @@ http.createServer((req, res) => {
                 if ( Object.keys(calEvents).length > 0) {
                     // 先約がある場合
                     response.text = '申し訳ございません。その時間は既に予約が入っています。';
-                    response.debug = calEvents;
                     // 結果を返す
                     json = JSON.stringify({"success":0,"data":response}, 'utf8');
 
@@ -203,7 +202,6 @@ http.createServer((req, res) => {
                     })
                     .catch(err => {
                         response.text = '予約に失敗しました。';
-                        response.debug = result;
                         json = JSON.stringify({"success":0,"data":response}, 'utf8');
                         res.write(json);
                         res.end();

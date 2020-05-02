@@ -156,7 +156,7 @@
             </div>
             <!--入力フォーム開始-->
             <div id="form-area" class="p-1">
-            <p class="label" v-cloak>ご予約日時：　{{ formData.date }} {{ formData.time }}</p>
+            <p class="label" v-cloak>ご予約日時：　{{ formData.date }} {{ formData.time }}<span class="error" v-cloak> {{ formCheck.time }}</span></p>
 
             <form id="input-form" class="pt-3">  
               <p class="label"><label>お名前：</label><span class="error" v-cloak> {{ formCheck.name }}</span></p>

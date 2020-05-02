@@ -139,7 +139,7 @@ const app = new Vue({
         this.formCheck.flag = 1;
       }
       if ( this.formData.time.match(/^\d{2}:\d{2}$/) == null ) {
-        this.formCheck.time = '※時間を正しく入力してください';
+        this.formCheck.time = '※日時を正しく選択してください';
         this.formCheck.flag = 1;
       }
       if ( this.formData.type.match(/初診|再診/) == null ){
@@ -210,7 +210,6 @@ const app = new Vue({
       $.post( 'event_get.cgi', null, 'json' )
       .then((events) => {
       this.reserveData = events.data;
-      console.log( this.reserveData );
       });
       // 月情報取得
       var date = new Date();
