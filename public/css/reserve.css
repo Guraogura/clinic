@@ -70,11 +70,12 @@ header {
   padding: 0px;
   font-weight: bold;
   text-align: right;
+  white-space: nowrap;
 }
 .nav-item {
   margin: 7px 0;
 }
-@media (min-width: 576px) {
+@media (min-width: 768px) {
   header {
     height: 110px;
   }
@@ -93,6 +94,9 @@ header {
   .navbar-brand {
     font-size: 36px;
   }
+
+}
+@media (min-width: 992px) {
   .nav-item {
     margin: 8px 0;
     border-right: 1.5px solid #ddd;
