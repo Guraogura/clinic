@@ -50,7 +50,6 @@ header {
 #tel {
   display: none;
 }
-
 .fa-phone {
   color: #0099cc;
 }
@@ -79,13 +78,11 @@ header {
   text-align: right;
 }
 .nav-item {
-  margin: 5px 0;
+  margin: 8px 0;
 }
 .nav-link:hover {
   color: #0099cc;
 }
-
-
 @media (min-width: 576px) {
   header {
     height: 110px;
