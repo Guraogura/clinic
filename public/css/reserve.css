@@ -1,5 +1,6 @@
 @charset "UTF-8";
 
+/*  */
 body {
   margin: 0;
   padding: 0;
@@ -12,27 +13,17 @@ p {
 }
 a {
   color: #212529;
+  text-decoration: none;
+  transition-duration: 0.2s;
+}
+a:hover {
+  color: #0099cc;
+  text-decoration: none;
+}
+a.active {
+  color: #0099cc;
 }
 
-#title {
-  padding: 60px 0 15px;
-  text-align: center;
-}
-h2 {
-  margin: 0 auto;
-  padding-bottom: 1px;
-  display: inline-block;
-  border-bottom: 1.5px dotted #0099cc;
-}
-h4 {
-  display: inline-block;
-  padding-bottom: 1px;
-  border-bottom: 1.5px dotted #0099cc;
-  font-size: 22px;
-}
-.h4 {
-  text-align: center;
-}
 
 /* ヘッダー ナビゲーションメニュー */
 header {
@@ -78,10 +69,7 @@ header {
   text-align: right;
 }
 .nav-item {
-  margin: 8px 0;
-}
-.nav-link:hover {
-  color: #0099cc;
+  margin: 7px 0;
 }
 @media (min-width: 576px) {
   header {
@@ -103,12 +91,34 @@ header {
     font-size: 36px;
   }
   .nav-item {
-    margin: 9px 0;
+    margin: 8px 0;
     border-right: 1.5px solid #ddd;
   }
   .nav-item:last-child {
     border-right: 0;
   }
+}
+
+
+/* 見出し */
+#title {
+  padding: 60px 0 15px;
+  text-align: center;
+}
+h2 {
+  margin: 0 auto;
+  padding-bottom: 1px;
+  display: inline-block;
+  border-bottom: 1.5px dotted #0099cc;
+}
+h4 {
+  display: inline-block;
+  padding-bottom: 1px;
+  border-bottom: 1.5px dotted #0099cc;
+  font-size: 22px;
+}
+.h4 {
+  text-align: center;
 }
 
 
@@ -180,6 +190,9 @@ header {
   cursor: default;
   background-color:transparent;
 }
+#calendar .selectable {
+  transition-duration: 0.2s;
+}
 #calendar .selectable:hover {
   opacity: 0.6;
   background-color: rgb(199, 233, 255);
@@ -210,6 +223,9 @@ header {
   height: 10px;
   margin: 0;
   padding: 0;
+}
+#timechart tbody tr .selectable {
+transition-duration: 0.2s;
 }
 #timechart tbody tr .selectable:hover {
   opacity: 0.6;
